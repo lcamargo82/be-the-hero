@@ -26,7 +26,7 @@ export default function Incidents() {
             return;
         }
 
-        if (total > 0 && incidents.length === total) {
+        if (total > 0 && incidents.length == total) {
             return;
         }
 
@@ -37,9 +37,9 @@ export default function Incidents() {
         });
 
         //anexar 2 vetores em um
-        setIncidents([... incidents, ... response.data]);
+        setIncidents([ ... incidents, ... response.data ]);
         setTotal(response.headers['x-total-count']);
-        setPage(page +1);
+        setPage(page + 1);
         setLoading(false);
     }
 
