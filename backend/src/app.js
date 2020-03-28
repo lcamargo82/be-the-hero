@@ -4,6 +4,8 @@ const express = require('express');
 //permisao de quem poderá acessar a aplicacao
 const cors = require('cors');
 
+const { errors } = require('celebrate');
+
 //importando as rotas
 const routes = require('./routes');
 
@@ -15,6 +17,7 @@ app.use(cors());
 //para sempre aceitar receber e converter em formatos json
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 //rotas, sempre recebem 2 parametros - request e response - express
 //o que vem depois da barra sao chamados de recursos
@@ -24,7 +27,7 @@ app.use(routes);
 //bd - configuração do banco de dados - driver: ex: select * from users // query builder: ex: table('users').select('*').where('...')
 //query builder - knex.js
 
-app.listen(3333);
+module.exports = app;
 
 //definindo entidades de acordo com layout
     //primeiro cadastro - ong
